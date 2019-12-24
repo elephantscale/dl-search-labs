@@ -2,28 +2,29 @@
 
 ## Overview
 We will use a pre-trained BERT model and Elasticsearch to build a search engine.
-Will be split into Part 1 installing ES and part 2 incorporating BERT  
+This labs is split into Part 1, installing Elastic, and part 2 incorporating BERT  
 
 ## Depends On
 None
 
 ## Run time
-Unknown mins
+30 mins
 
 ## Lab Goals
 
-Install Elasticsearch and verify its operation
-Download a Pre-trained BERT model
-Setting environment variables
-Launching Docker container
-Creating Elasticsearch index
-Creating documents
-Indexing document
+* Install Elasticsearch and verify its operation
+* Download a Pre-trained BERT model
+* Setting environment variables
+* Launching Docker container
+* Creating Elasticsearch index
+* Creating documents
+* Indexing document
 
 ## STEP 0: To Instructor
-Use our ubuntu AMI, t2.large or t2.xlarge instances and Elasticsearch security group)
 
-## Part 1 Installing ES
+* Use our ubuntu AMI, t2.large or t2.xlarge instances and Elasticsearch security group)
+
+## Part 1 Installing Elastic
 
 ### STEP 1: Login to the server
  
@@ -33,22 +34,23 @@ Each student is provided their individual server and credentials
 
 ### STEP 2: Prepare the environment
 
-Verify that you have Java installed  
-Installation requies Java 8 and above to work with elasticsearch 
+* Verify that you have Java installed  
+* Installation requies Java 8 and above to work with elasticsearch 
 
-    java -version
+        java -version
     
 
 ### STEP 3: Download and install ES
 
-    get https://s3.amazonaws.com/elephantscale-public/downloads/elasticsearch-5.5.3.zip  #outdated elasticsearch
-    unzip elasticsearch-5.5.3.zip
-    rm -fr elasticsearch
-    mv elasticsearch-5.5.3 elasticsearch
+        get https://s3.amazonaws.com/elephantscale-public/downloads/elasticsearch-5.5.3.zip  #outdated elasticsearch
+        unzip elasticsearch-5.5.3.zip
+        rm -fr elasticsearch
+        mv elasticsearch-5.5.3 elasticsearch
 
 If you want to experiment with latest Elasticsearch 7
     
-    wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.5.1-darwin-x86_64.tar.gz  #mac download link 
+        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.5.1-darwin-x86_64.tar.gz  #mac download link 
+
 To get other links go here https://www.elastic.co/start 
 
 ### STEP 4: Start ES
@@ -93,7 +95,7 @@ Here is the system architecture.
 
 ## System architecture
 
-![System architecture](./docs/architecture.png)
+![System architecture](../docs/architecture.png)
 
 ### 1. Download a pretrained BERT model
 
