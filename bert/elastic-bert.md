@@ -2,13 +2,13 @@
 
 ## Overview
 We will use a pre-trained BERT model and Elasticsearch to build a search engine.
-This labs is split into Part 1, installing Elastic, and part 2 incorporating BERT  
+Will be split into Part 1 installing Elasticsearch and part 2 incorporating BERT  
 
 ## Depends On
 None
 
 ## Run time
-30 mins
+Unknown mins
 
 ## Lab Goals
 
@@ -21,10 +21,9 @@ None
 * Indexing document
 
 ## STEP 0: To Instructor
-
 * Use our ubuntu AMI, t2.large or t2.xlarge instances and Elasticsearch security group)
 
-## Part 1 Installing Elastic
+## Part 1 Installing Elasticsearch
 
 ### STEP 1: Login to the server
  
@@ -37,36 +36,43 @@ Each student is provided their individual server and credentials
 * Verify that you have Java installed  
 * Installation requies Java 8 and above to work with elasticsearch 
 
-        java -version
-    
+      java -version
 
-### STEP 3: Download and install ES
+If no java installed   
+```
+  sudo apt install openjdk-11-jre-headless
+```
 
-        get https://s3.amazonaws.com/elephantscale-public/downloads/elasticsearch-5.5.3.zip  #outdated elasticsearch
-        unzip elasticsearch-5.5.3.zip
-        rm -fr elasticsearch
-        mv elasticsearch-5.5.3 elasticsearch
+### STEP 3: Download and install Elasticsearch
+
+
+      wget https://s3.amazonaws.com/elephantscale-public/downloads/elasticsearch-5.5.3.zip  #outdated but works well
+      unzip elasticsearch-5.5.3.zip
+      rm  elasticsearch-5.5.3.zip   
+      mv elasticsearch-5.5.3 elasticsearch  
 
 If you want to experiment with latest Elasticsearch 7
     
-        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.5.1-darwin-x86_64.tar.gz  #mac download link 
+        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.5.1-linux-x86_64.tar.gz
+        tar -xvf elasticsearch-7.5.1-linux-x86_64.tar.gz
 
 To get other links go here https://www.elastic.co/start 
 
-### STEP 4: Start ES
+### STEP 4: Start Elasticsearch
 
-    cd elasticsearch
-    bin/elasticsearch 
+      cd elasticsearch/bin
+      ./elasticsearch
+
     
 _Tip_: You can run it in the background as a daemon by using the -d option
 
-    Try this
+      Try this
     
-    bin/elasticsearch -d
+      ./elasticsearch -d
     
 ### STEP 5: Verify install
 
-    curl 'http://localhost:9200/?pretty'
+    curl "http://localhost:9200/?pretty"
     
 You should see an output like this
 
@@ -95,14 +101,14 @@ Here is the system architecture.
 
 ## System architecture
 
-![System architecture](../docs/architecture.png)
+![System architecture](./docs/architecture.png)
 
 ### 1. Download a pretrained BERT model
 
 We will be using a pretrained English BERT model
 
 ```bash
-$ wget https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip
-$ unzip cased_L-12_H-768_A-12.zip
+wget https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip
+unzip cased_L-12_H-768_A-12.zip
 ```
 ## Finish rest of Markdown need to convert upgrade current code to TF 2.0
